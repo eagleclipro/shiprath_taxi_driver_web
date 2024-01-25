@@ -117,11 +117,12 @@ class ImageUploader implements ImageUploaderContract
         $this->validateFile();
 
         $config = $this->config('driver.upload.documents');
-
+        
         $image = $this->file;
         $file_format = $image->getClientOriginalExtension(); 
         $filename = $this->hashGenerator->extension($file_format)->make();  
-        $filePath = file_path(data_get($config, 'path'),''); 
+        $filePath = file_path(data_get($config, 'path'),$driver_id); 
+        // dd($filePath);
         $path = Storage::putFileAs($filePath, $image, $filename); 
 
 

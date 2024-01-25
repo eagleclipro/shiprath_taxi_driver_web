@@ -428,7 +428,6 @@ Route::middleware('auth:web')->group(function () {
             Route::get('view-driver-invoice/{request_detail}','RequestController@viewDriverInvoice');
             Route::get('cancelled/{request}', 'RequestController@getCancelledRequest');
             // Route::get('/delivery-rides', 'RequestController@indexDelivery');
-
            
         });
 
@@ -437,7 +436,6 @@ Route::middleware('auth:web')->group(function () {
             Route::get('/fetch', 'RequestController@getAllDeliveryRequest');
             Route::get('cancelled/{request}', 'RequestController@getCancelledDeliveryRequest');
 
-           
         });
 
          Route::group(['prefix' => 'scheduled-rides',  'middleware' => 'permission:view-requests'], function () {
